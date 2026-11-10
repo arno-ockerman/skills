@@ -3,6 +3,15 @@
 My personal agent skills library. It is the source of truth for the skills that
 my t3code agents (Claude Code and Codex) load.
 
+## Used Hermes skills export
+
+The repository also contains a sanitized export of **128 distinct used Hermes skill names** across four profiles, retained as **170 profile/recovered copies**. See [HERMES_EXPORT.md](HERMES_EXPORT.md) for selection rules, privacy handling, historical archives and limitations; [manifest.json](manifest.json) records usage evidence and integrity hashes.
+
+- `profiles/`: profile-specific skills and previously used archives.
+- `recovered/`: three available copies of historically used skills whose original profile version is missing.
+- The existing `skills/` library and `sync.sh` remain separate: `sync.sh install` does **not** install the Hermes export or archived skills.
+
+
 ## Skills
 
 | Skill | Use it when |
