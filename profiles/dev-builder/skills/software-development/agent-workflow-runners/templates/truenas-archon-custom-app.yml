@@ -1,0 +1,54 @@
+services:
+  archon:
+    image: ghcr.io/coleam00/archon:latest
+    container_name: archon
+    restart: unless-stopped
+
+    environment:
+      ARCHON_DOCKER: "true"
+      PORT: "3000"
+      ARCHON_HOME: "/.archon"
+
+      AI_TOOLS_ROOT: "/opt/ai-tools"
+      AI_TOOLS_BIN: "/opt/ai-tools/bin"
+      AI_TOOLS_CONFIG: "/opt/ai-tools/config"
+      AI_TOOLS_CACHE: "/opt/ai-tools/cache"
+      AI_TOOLS_WORK: "/opt/ai-tools/work"
+
+      CODEX_HOME_DIR: "/opt/ai-tools/config/codex/home"
+      CLAUDE_HOME_DIR: "/opt/ai-tools/config/claude/home"
+      CODEX_BIN_PATH: "/opt/ai-tools/bin/codex"
+
+      PATH: "/opt/ai-tools/bin:/opt/ai-tools/work/npm-prefix/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+      XDG_CONFIG_HOME: "/opt/ai-tools/config/xdg"
+      XDG_CACHE_HOME: "/opt/ai-tools/cache/xdg"
+      XDG_STATE_HOME: "/opt/ai-tools/work/state"
+      HOME: "/home/appuser"
+
+    ports:
+      - "30430:3000"
+
+    volumes:
+      # Archon-owned dataset. Replace tank with the user's TrueNAS pool name.
+      - /mnt/tank/apps/archon/data:/.archon
+      - /mnt/tank/apps/archon/home:/home/appuser
+
+      # Shared AI tooling/auth/skills live outside Archon.
+      - /opt/ai-tools:/opt/ai-tools
+
+      # User's source-of-truth context.
+      - /opt/ai-context/ProductivityCenter:/opt/ai-context/ProductivityCenter
+
+      # Convenience mounts for CLIs that expect ~/.codex or ~/.claude.
+      - /opt/ai-tools/config/codex/home/.codex:/home/appuser/.codex
+      - /opt/ai-tools/config/claude/home/.claude:/home/appuser/.claude
+      - /opt/ai-tools/config/claude/home/.claude.json:/home/appuser/.claude.json
+
+    working_dir: /opt/ai-context/ProductivityCenter
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s

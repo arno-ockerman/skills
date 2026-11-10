@@ -1,0 +1,19 @@
+# Runtime state and credentials must never be committed.
+.env
+.env.*
+!.env.example
+!.env.template
+*.key
+*.pem
+*.p12
+*.pfx
+auth.json
+credentials.json
+state.db
+*.sqlite
+*.sqlite3
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+.DS_Store

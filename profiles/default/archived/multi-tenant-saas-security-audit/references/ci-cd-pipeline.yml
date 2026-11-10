@@ -1,0 +1,229 @@
+# CI/CD Pipeline Template (GitHub Actions)
+
+```yaml
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'preview'
+        type: choice
+        options:
+          - preview
+          - production
+
+env:
+  NODE_VERSION: '22'
+  EXPO_VERSION: '~54.0.33'
+
+jobs:
+  lint-and-typecheck:
+    name: Lint & Typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run lint
+      - run: npx tsc --noEmit
+
+  test:
+    name: Unit & Integration Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      - run: npm ci
+      - run: npm test -- --ci --coverage
+      - uses: codecov/codecov-action@v4
+        if: always()
+        with:
+          flags: unit
+          files: ./coverage/lcov.info
+
+  e2e-smoke:
+    name: E2E Smoke Tests (Web)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: [lint-and-typecheck]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run export:web
+        env:
+          EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.CLERK_PUBLISHABLE_KEY }}
+          EXPO_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          EXPO_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          EXPO_PUBLIC_ENABLE_WEB_AUTH: 'true'
+          EXPO_PUBLIC_E2E_MODE: 'true'
+      - run: |
+          npx serve -s web-build -l 3000 &
+          sleep 5
+        shell: bash
+      - run: npm run e2e:smoke
+        env:
+          EXPO_PUBLIC_E2E_MODE: 'true'
+          PLAYWRIGHT_BASE_URL: 'http://localhost:3000'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: test-results/
+          retention-days: 7
+
+  supabase-migration-check:
+    name: Supabase Migration Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: supabase/setup-cli@v1
+        with:
+          version: '>=2.0.0'
+      - run: supabase start
+      - run: supabase db reset --linked
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+      - run: supabase migration list
+
+  deploy-preview:
+    name: Deploy Preview
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: [lint-and-typecheck, test, e2e-smoke]
+    if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    environment: preview
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      - run: npm ci
+      - name: Deploy to Vercel Preview
+        uses: amondnet/vercel-action@v25
+        if: always()
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          working-directory: ./
+          vercel-args: '--prod=false'
+        env:
+          EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.CLERK_PUBLISHABLE_KEY }}
+          EXPO_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          EXPO_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          EXPO_PUBLIC_ENABLE_WEB_AUTH: 'true'
+      - name: Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+          packager: npm
+      - run: npx expo-doctor
+      - name: Publish EAS Update (Preview)
+        run: eas update --branch preview --message "Preview deploy from ${{ github.sha }}"
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v1
+      - name: Deploy Edge Functions (Preview)
+        run: |
+          supabase functions deploy clerk-webhook --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+          supabase functions deploy create-mollie-payment --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+          supabase functions deploy mollie-webhook --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+          supabase functions deploy start-trial --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          CLERK_WEBHOOK_SECRET: ${{ secrets.CLERK_WEBHOOK_SECRET }}
+          MOLLIE_API_KEY: ${{ secrets.MOLLIE_API_KEY }}
+          CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
+
+  deploy-production:
+    name: Deploy Production
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    needs: [lint-and-typecheck, test, e2e-smoke, deploy-preview]
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'production'
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      - run: npm ci
+      - name: Deploy to Vercel Production
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod=true'
+        env:
+          EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.CLERK_PUBLISHABLE_KEY }}
+          EXPO_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          EXPO_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          EXPO_PUBLIC_ENABLE_WEB_AUTH: 'true'
+      - name: Setup EAS
+        uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+          packager: npm
+      - run: eas build --platform ios --profile production --non-interactive
+        timeout-minutes: 60
+      - run: eas build --platform android --profile production --non-interactive
+        timeout-minutes: 60
+      - name: Submit iOS to App Store
+        if: false
+        run: eas submit --platform ios --profile production --non-interactive
+      - name: Submit Android to Play Store
+        if: false
+        run: eas submit --platform android --profile production --non-interactive
+      - name: Setup Supabase CLI
+        uses: supabase/setup-cli@v1
+      - name: Push Database Migrations (Production)
+        run: supabase db push --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+      - name: Deploy Edge Functions (Production)
+        run: |
+          supabase functions deploy clerk-webhook --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+          supabase functions deploy create-mollie-payment --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+          supabase functions deploy mollie-webhook --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+          supabase functions deploy start-trial --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          CLERK_WEBHOOK_SECRET: ${{ secrets.CLERK_WEBHOOK_SECRET }}
+          MOLLIE_API_KEY: ${{ secrets.MOLLIE_API_KEY }}
+          CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
+      - name: Post-deploy smoke test
+        run: |
+          sleep 30
+          curl -f https://club-app.vercel.app || exit 1
+        env:
+          VERCEL_URL: https://club-app.vercel.app
+```

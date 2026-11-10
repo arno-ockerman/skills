@@ -1,0 +1,1818 @@
+{
+  "selection": "Installed skill directories with recorded use_count > 0 or skill_view invocation in local session history; installs and patches alone do not qualify. Archived previously used skills are included separately. Skill contents are a sanitized public export, not a backup of credentials or runtime data. Historical use counters may have been inherited when a profile was cloned. Session calls demonstrate invocation, not task success.",
+  "profiles": {
+    "default": 44,
+    "dev-builder": 66,
+    "health-coach": 34,
+    "herbalife-business": 23
+  },
+  "skill_variants": 170,
+  "unique_skill_names": 128,
+  "skills": [
+    {
+      "profile": "default",
+      "name": "ai-context-ops",
+      "path": "profiles/default/skills/productivity/ai-context-ops",
+      "status": "active",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 1,
+      "files": 1,
+      "sha256": "802fc20ef8d6022289312886fe4686448751f3595ed4ffa124a8ad1efd8b9fc6"
+    },
+    {
+      "profile": "default",
+      "name": "blocked-page-recovery",
+      "path": "profiles/default/skills/web/blocked-page-recovery",
+      "status": "active",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 1,
+      "files": 2,
+      "sha256": "4f7d6d23c6f247253e672ee7a0b49d5ce4236b75c69b46c7648e09947fa64b9a"
+    },
+    {
+      "profile": "default",
+      "name": "code-review",
+      "path": "profiles/default/skills/mattpocock/code-review",
+      "status": "active",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "a0a6ea333e7fd617515f47613832e1f2decb3abf18ac313d7fd0ea5ddda04365"
+    },
+    {
+      "profile": "default",
+      "name": "codebase-design",
+      "path": "profiles/default/skills/mattpocock/codebase-design",
+      "status": "active",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 3,
+      "sha256": "6af47ce35b6d06ce5a06201ab222c29d77fdd0211168526f30035a24e6873c7b"
+    },
+    {
+      "profile": "default",
+      "name": "codebase-inspection",
+      "path": "profiles/default/archived/codebase-inspection",
+      "status": "archived",
+      "recorded_use_count": 0,
+      "session_skill_view_calls": 1,
+      "files": 1,
+      "sha256": "f1760b2787809c3e11286c93d0fcc559d0ca81e098ba4c55fc5e1a1dfc05b29a"
+    },
+    {
+      "profile": "default",
+      "name": "coding-agent-control-surfaces",
+      "path": "profiles/default/skills/autonomous-ai-agents/coding-agent-control-surfaces",
+      "status": "active",
+      "recorded_use_count": 8,
+      "session_skill_view_calls": 3,
+      "files": 3,
+      "sha256": "181495df8f4c34dd44efa3506732821809970570773ce1f67e4e1bc4d56d4985"
+    },
+    {
+      "profile": "default",
+      "name": "coding-agents",
+      "path": "profiles/default/skills/autonomous-ai-agents/coding-agents",
+      "status": "active",
+      "recorded_use_count": 6,
+      "session_skill_view_calls": 3,
+      "files": 1,
+      "sha256": "549079e8a2e9649d9d9bd8ae456bc9fcdfa2b2c9551e75aee8e8544f3fe9bcab"
+    },
+    {
+      "profile": "default",
+      "name": "context-capture-pipeline",
+      "path": "profiles/default/archived/context-capture-pipeline",
+      "status": "archived",
+      "recorded_use_count": 105,
+      "session_skill_view_calls": 1,
+      "files": 3,
+      "sha256": "b8ebc123ae57e885817ed41c21d2d002317d3018421a9ea430cadecc48856ac7"
+    },
+    {
+      "profile": "default",
+      "name": "diagnosing-bugs",
+      "path": "profiles/default/skills/mattpocock/diagnosing-bugs",
+      "status": "active",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 1,
+      "files": 2,
+      "sha256": "30d504909484072b68fd2662cf1874da1d5f2c57fa02cbfc0750896c269713bb"
+    },
+    {
+      "profile": "default",
+      "name": "fireflies-processing",
+      "path": "profiles/default/archived/fireflies-processing",
+      "status": "archived",
+      "recorded_use_count": 4977,
+      "session_skill_view_calls": 0,
+      "files": 33,
+      "sha256": "6fef2d8399e93596156070de0bceed00f84e1889249a40a6362d829e0fc81644"
+    },
+    {
+      "profile": "default",
+      "name": "github",
+      "path": "profiles/default/skills/software-development/github",
+      "status": "active",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 17,
+      "sha256": "7e63f45fc983c6de8115a684266215e9e782a46fc54fd0996678fb1ee2891b5a"
+    },
+    {
+      "profile": "default",
+      "name": "github-issue-to-pr",
+      "path": "profiles/default/skills/github/github-issue-to-pr",
+      "status": "active",
+      "recorded_use_count": 4,
+      "session_skill_view_calls": 1,
+      "files": 1,
+      "sha256": "f9cf8d1757eedce42fc7050d13e5bf250e3615536c2865f40e7e86fc3f358615"
+    },
+    {
+      "profile": "default",
+      "name": "github-pr-delivery",
+      "path": "profiles/default/skills/software-development/github-pr-delivery",
+      "status": "active",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "96f2f6ba62db5896e8cd2b586e94192f55ce7d487a146ee4842b7d28df3ff67e"
+    },
+    {
+      "profile": "default",
+      "name": "github-workflow",
+      "path": "profiles/default/skills/github/github-workflow",
+      "status": "active",
+      "recorded_use_count": 32,
+      "session_skill_view_calls": 10,
+      "files": 12,
+      "sha256": "bb5049e22b7b0a37a55fd780a1c0e39116d47a14501b50631911bd95f80a76ee"
+    },
+    {
+      "profile": "default",
+      "name": "grill-with-docs",
+      "path": "profiles/default/skills/mattpocock/grill-with-docs",
+      "status": "active",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "8683d99a2d347d358662c4d4744affd38212913b85a69158118b1f6735e5da7e"
+    },
+    {
+      "profile": "default",
+      "name": "grounded-citations",
+      "path": "profiles/default/skills/research/grounded-citations",
+      "status": "active",
+      "recorded_use_count": 4,
+      "session_skill_view_calls": 2,
+      "files": 5,
+      "sha256": "712c0a4991c523a86072be01e049ac70c5cd0d2b63aa92037b401532cda8d0e7"
+    },
+    {
+      "profile": "default",
+      "name": "health-coach-bot",
+      "path": "profiles/default/archived/health-coach-bot",
+      "status": "archived",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 4,
+      "files": 3,
+      "sha256": "df7c0b5aa6fc70c49ee3d67130a920efd26ab63241ebd3282e550ad30cd1475b"
+    },
+    {
+      "profile": "default",
+      "name": "hermes-agent",
+      "path": "profiles/default/skills/autonomous-ai-agents/hermes-agent",
+      "status": "active",
+      "recorded_use_count": 1033,
+      "session_skill_view_calls": 14,
+      "files": 9,
+      "sha256": "e25d826ff2295e8f8aedff0837ed01aabc0859701d9539c27d6419178b11a3cc"
+    },
+    {
+      "profile": "default",
+      "name": "hermes-hooks-integration",
+      "path": "profiles/default/archived/hermes-hooks-integration",
+      "status": "archived",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 2,
+      "sha256": "bb2281ac38545dfe66bcf22b458326613bb6b8c8a254cc2db0f91a8ee7b27300"
+    },
+    {
+      "profile": "default",
+      "name": "hermes-s6-container-supervision",
+      "path": "profiles/default/skills/software-development/hermes-s6-container-supervision",
+      "status": "active",
+      "recorded_use_count": 8,
+      "session_skill_view_calls": 3,
+      "files": 2,
+      "sha256": "9b4a654810e3cf7083f7cc4e7bc5166a2d9bbaa75f9012a19a92486439a2f5e8"
+    },
+    {
+      "profile": "default",
+      "name": "home-assistant-ops",
+      "path": "profiles/default/skills/devops/home-assistant-ops",
+      "status": "active",
+      "recorded_use_count": 10,
+      "session_skill_view_calls": 6,
+      "files": 3,
+      "sha256": "2495a3c88ac92749027754371326a8d7816072b04015791c9803ef0d9a2ab569"
+    },
+    {
+      "profile": "default",
+      "name": "homelab-hardware-buying",
+      "path": "profiles/default/archived/homelab-hardware-buying",
+      "status": "archived",
+      "recorded_use_count": 7,
+      "session_skill_view_calls": 3,
+      "files": 3,
+      "sha256": "1840128f1cfd286edd0898ba8d63053694e842c95742def47a06d3f917e07fd3"
+    },
+    {
+      "profile": "default",
+      "name": "implement",
+      "path": "profiles/default/skills/mattpocock/implement",
+      "status": "active",
+      "recorded_use_count": 5,
+      "session_skill_view_calls": 1,
+      "files": 1,
+      "sha256": "d5057d8814c3d9051817f5ad6f99c2e5333738c418618126454e9821fa659bea"
+    },
+    {
+      "profile": "default",
+      "name": "kanban",
+      "path": "profiles/default/skills/devops/kanban",
+      "status": "active",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 4,
+      "files": 1,
+      "sha256": "f10aafc8a8ebea20ecd11f95a5ab80612de38293c9fedf3164eb24d7eb73be03"
+    },
+    {
+      "profile": "default",
+      "name": "mlops-workflow",
+      "path": "profiles/default/skills/mlops/mlops-workflow",
+      "status": "active",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "8a32b962956ec92ed457271c317119790babc24b7a5fa94f2c836f17cca2d890"
+    },
+    {
+      "profile": "default",
+      "name": "multi-tenant-saas-security-audit",
+      "path": "profiles/default/archived/multi-tenant-saas-security-audit",
+      "status": "archived",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 9,
+      "sha256": "2cc63a392978c08d7e5272252db381c319e22c317c167ab871fd8a0d573be726"
+    },
+    {
+      "profile": "default",
+      "name": "native-mcp",
+      "path": "profiles/default/skills/mcp/native-mcp",
+      "status": "active",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "9d952a55fdae40fea0a2a827317644fad23e2971db699bf9e5562003f9a58eb4"
+    },
+    {
+      "profile": "default",
+      "name": "note-taking-tools",
+      "path": "profiles/default/skills/note-taking/note-taking-tools",
+      "status": "active",
+      "recorded_use_count": 430,
+      "session_skill_view_calls": 3,
+      "files": 3,
+      "sha256": "30041602b9acd05fd02e78935f88f2dbba1babd9c6f959076a32404d3bd317c8"
+    },
+    {
+      "profile": "default",
+      "name": "product-price-monitor",
+      "path": "profiles/default/skills/productivity/product-price-monitor",
+      "status": "stale",
+      "recorded_use_count": 40,
+      "session_skill_view_calls": 5,
+      "files": 1,
+      "sha256": "321d3ab72a9934566b96fd824bdd69ebb73d718f17af1afa84fbca034cf03add"
+    },
+    {
+      "profile": "default",
+      "name": "production-public-link-debugging",
+      "path": "profiles/default/skills/software-development/production-public-link-debugging",
+      "status": "active",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "6c8d8233f5ea30f213bb73598614438bc884369f12387c8c6ecfd3036aeaff67"
+    },
+    {
+      "profile": "default",
+      "name": "productivity-tools",
+      "path": "profiles/default/skills/productivity/productivity-tools",
+      "status": "active",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "efecc3818efec8931054e22fc802217b8f3ec95a705c9c9862bb2e3e59c68eee"
+    },
+    {
+      "profile": "default",
+      "name": "requesting-code-review",
+      "path": "profiles/default/archived/requesting-code-review",
+      "status": "archived",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "55bf97d3b8ccb74b1a5b07c3b68bbcd95e1d32bfe48a3c8e73b288a690b624ea"
+    },
+    {
+      "profile": "default",
+      "name": "research",
+      "path": "profiles/default/skills/mattpocock/research",
+      "status": "active",
+      "recorded_use_count": 4,
+      "session_skill_view_calls": 2,
+      "files": 1,
+      "sha256": "6e70265f3f531ab6f3c77ee5ecbafaed4398cc2094ca04510a0048553f560c5e"
+    },
+    {
+      "profile": "default",
+      "name": "research-workflow",
+      "path": "profiles/default/skills/research/research-workflow",
+      "status": "active",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 4,
+      "files": 1,
+      "sha256": "9b68ee0c2d72ebbe6032d01049a80ee3bff8fc683c60767ad920d0690f6f6b0d"
+    },
+    {
+      "profile": "default",
+      "name": "secondbrain-control-plane",
+      "path": "profiles/default/skills/note-taking/secondbrain-control-plane",
+      "status": "active",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 1,
+      "files": 1,
+      "sha256": "268f91ca6dd27bf613370dbd424a8b8f3d3297afed6c41df2eef14311ffc1dc2"
+    },
+    {
+      "profile": "default",
+      "name": "shared-agent-cli-runtime",
+      "path": "profiles/default/archived/shared-agent-cli-runtime",
+      "status": "archived",
+      "recorded_use_count": 15,
+      "session_skill_view_calls": 0,
+      "files": 6,
+      "sha256": "281a2311de8a44afd8baf86de6b1a42dce17b0af249341c5d77ccdfe271dd799"
+    },
+    {
+      "profile": "default",
+      "name": "subagent-driven-development",
+      "path": "profiles/default/skills/software-development/subagent-driven-development",
+      "status": "active",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 1,
+      "files": 3,
+      "sha256": "94f298aea3533b9102f904f066aadca199d39bed49ef3e3459a83498e4fa3e0b"
+    },
+    {
+      "profile": "default",
+      "name": "systematic-debugging",
+      "path": "profiles/default/archived/systematic-debugging",
+      "status": "archived",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "48dd367f38c84136e28c12f39306d5cc19fa397fa7cbda895fc3e62bfb14ca49"
+    },
+    {
+      "profile": "default",
+      "name": "tdd",
+      "path": "profiles/default/skills/mattpocock/tdd",
+      "status": "active",
+      "recorded_use_count": 5,
+      "session_skill_view_calls": 1,
+      "files": 3,
+      "sha256": "e8ecf2e6373d026ec1926fcfb4bf61510e614754c6a9402cd8f33105f5c0d258"
+    },
+    {
+      "profile": "default",
+      "name": "teach",
+      "path": "profiles/default/skills/mattpocock/teach",
+      "status": "active",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 5,
+      "sha256": "63feafa166e24e8b85376accae0af357beb1874c61776acc32c1d39a6fce9bc4"
+    },
+    {
+      "profile": "default",
+      "name": "truenas-app-ops",
+      "path": "profiles/default/skills/devops/truenas-app-ops",
+      "status": "active",
+      "recorded_use_count": 19,
+      "session_skill_view_calls": 8,
+      "files": 4,
+      "sha256": "c429ad2ca45ad18892903b3f0ae4fbd1b5c3c0a71712c4f82e4dba0f915dbe14"
+    },
+    {
+      "profile": "default",
+      "name": "webhook-subscriptions",
+      "path": "profiles/default/skills/devops/webhook-subscriptions",
+      "status": "active",
+      "recorded_use_count": 540,
+      "session_skill_view_calls": 0,
+      "files": 5,
+      "sha256": "224f9a496c8b8720deb943fc82d6ff5658bf6d2ea442b9a28611a8b3f54b864b"
+    },
+    {
+      "profile": "default",
+      "name": "writing-plans",
+      "path": "profiles/default/skills/software-development/writing-plans",
+      "status": "active",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 1,
+      "files": 1,
+      "sha256": "10f90617ee2ab1a78f157a48b9006d15a82761e2316bf6b360857c14a748a0d5"
+    },
+    {
+      "profile": "default",
+      "name": "youtube-content",
+      "path": "profiles/default/skills/media/youtube-content",
+      "status": "active",
+      "recorded_use_count": 5,
+      "session_skill_view_calls": 4,
+      "files": 3,
+      "sha256": "6a5ebdc2dcc69c04f81b37001cafe1d39b55dc3586cef6dbe43156b0bc294be2"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "agent-workflow-runners",
+      "path": "profiles/dev-builder/skills/software-development/agent-workflow-runners",
+      "status": "active",
+      "recorded_use_count": 11,
+      "session_skill_view_calls": 4,
+      "files": 6,
+      "sha256": "802349464e1f74c7edeba828fbbc3ec20762c6215e8a9c774d28b0fc5edafd6d"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "archify",
+      "path": "profiles/dev-builder/skills/archify",
+      "status": "active",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 2,
+      "files": 218,
+      "sha256": "3548a3180b1a0fa0ebfba98acd00d494cb3b8943c9d1249633296c48624ad626"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "archon",
+      "path": "profiles/dev-builder/skills/archon",
+      "status": "active",
+      "recorded_use_count": 142,
+      "session_skill_view_calls": 104,
+      "files": 21,
+      "sha256": "fad602b5c963bc6d491910657351a8c60f8317cc86a1f2c5bb1181191da64c5c"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "archon-workflow-operations",
+      "path": "profiles/dev-builder/skills/devops/archon-workflow-operations",
+      "status": "active",
+      "recorded_use_count": 166,
+      "session_skill_view_calls": 92,
+      "files": 32,
+      "sha256": "267437732cf003f4a4b2a20145bd19f4ddac5ddf901892d967317303c9151815"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "ask-matt",
+      "path": "profiles/dev-builder/skills/mattpocock/engineering/ask-matt",
+      "status": "active",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 1,
+      "files": 2,
+      "sha256": "d4a8d9f5857d0a4e6c626768355077ea48c2227eb40a05f1e1d2e21f39b0adb2"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "autonomous-maintenance-jobs",
+      "path": "profiles/dev-builder/skills/software-development/autonomous-maintenance-jobs",
+      "status": "stale",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 1,
+      "files": 1,
+      "sha256": "c225f65807bd72c84a780ff54274b365f0c28a2e2d31902570eb2fed22296c72"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "blocked-page-recovery",
+      "path": "profiles/dev-builder/skills/web/blocked-page-recovery",
+      "status": "stale",
+      "recorded_use_count": 6,
+      "session_skill_view_calls": 1,
+      "files": 2,
+      "sha256": "4f7d6d23c6f247253e672ee7a0b49d5ce4236b75c69b46c7648e09947fa64b9a"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "browser-e2e-spec-authoring",
+      "path": "profiles/dev-builder/skills/software-development/browser-e2e-spec-authoring",
+      "status": "stale",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 2,
+      "sha256": "d0071fc7f719d1cae6bf013ee7062cb8736aabc0d0ff773e9b0e04a44af86485"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "central-inference-gateway",
+      "path": "profiles/dev-builder/skills/autonomous-ai-agents/central-inference-gateway",
+      "status": "stale",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 2,
+      "sha256": "5e30dc0724b239afcdd09c6a23371ca955801d3473c392295e99fd358b27d870"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "code-review",
+      "path": "profiles/dev-builder/skills/mattpocock/engineering/code-review",
+      "status": "active",
+      "recorded_use_count": 84,
+      "session_skill_view_calls": 52,
+      "files": 2,
+      "sha256": "d45f786768d013c1e387aa5b3d067f7a2540c9350b1ef116d0245d9881a61bde"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "codebase-design",
+      "path": "profiles/dev-builder/skills/mattpocock/engineering/codebase-design",
+      "status": "active",
+      "recorded_use_count": 14,
+      "session_skill_view_calls": 10,
+      "files": 4,
+      "sha256": "c46b49303a81c7fc8934d0f4fbc44382cdecb73942d85d8d7db3523407fff8fa"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "coding-agent-clis",
+      "path": "profiles/dev-builder/skills/autonomous-ai-agents/coding-agent-clis",
+      "status": "active",
+      "recorded_use_count": 18,
+      "session_skill_view_calls": 11,
+      "files": 2,
+      "sha256": "42d91b49e2dad53f8ba49dcca52ffb2e783c167f8e4c2d765b4112148a3f3562"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "computer-use",
+      "path": "profiles/dev-builder/archived/computer-use",
+      "status": "archived",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 1,
+      "files": 1,
+      "sha256": "a13cc1683cc406c6efb08920c144ca533bf4861897dfd319a31a78e168db144b"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "containerized-agent-operations",
+      "path": "profiles/dev-builder/skills/devops/containerized-agent-operations",
+      "status": "active",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 2,
+      "sha256": "11537ceed3223cd2c363fb33639c0f2493eb4eb83d5f097b6ebcd95ef9dd7f44"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "create-verification-skill",
+      "path": "profiles/dev-builder/skills/pstack/create-verification-skill",
+      "status": "active",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 3,
+      "files": 4,
+      "sha256": "086afa101a3a83227ef7a192c7fafc09eb54ee9fec5508674c87d2be3f8093db"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "diagnosing-bugs",
+      "path": "profiles/dev-builder/skills/mattpocock/engineering/diagnosing-bugs",
+      "status": "active",
+      "recorded_use_count": 13,
+      "session_skill_view_calls": 3,
+      "files": 3,
+      "sha256": "73be315b6528e88c48c6f797d5fa7faa284fc468e6ab795c4bfe5161d4440e2f"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "domain-modeling",
+      "path": "profiles/dev-builder/skills/mattpocock/engineering/domain-modeling",
+      "status": "active",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 2,
+      "files": 4,
+      "sha256": "40afc20cd49261811d7fe377fff53c1804f5e27644b42adb65469c7fc305a3a2"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "expo-saas-production-readiness",
+      "path": "profiles/dev-builder/skills/software-development/expo-saas-production-readiness",
+      "status": "stale",
+      "recorded_use_count": 11,
+      "session_skill_view_calls": 2,
+      "files": 3,
+      "sha256": "dad18551acf515639df06caa0695c95cfb74e6b1fcc559bf906ba2317bf2b7b5"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "expo-supabase-playwright-web-e2e",
+      "path": "profiles/dev-builder/skills/software-development/expo-supabase-playwright-web-e2e",
+      "status": "stale",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 2,
+      "sha256": "eac9f798964dfc9a21b4c67d7b8ceb002b824679c7204afee9cff2fff1db1ff0"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "external-platform-workflows",
+      "path": "profiles/dev-builder/archived/external-platform-workflows",
+      "status": "archived",
+      "recorded_use_count": 4,
+      "session_skill_view_calls": 0,
+      "files": 3,
+      "sha256": "db1877211baaaf38c0d681afe7145b518a2241ab357e8b8e70094ed1caafe795"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "financial-data-systems",
+      "path": "profiles/dev-builder/skills/software-development/financial-data-systems",
+      "status": "stale",
+      "recorded_use_count": 28,
+      "session_skill_view_calls": 2,
+      "files": 4,
+      "sha256": "b0e15590eb13884dc7514e52d630c228b7918075a682f47bef67e5155fabb307"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "firebase-deployment",
+      "path": "profiles/dev-builder/skills/devops/firebase-deployment",
+      "status": "stale",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "050cea7bfd52350e62dd914dc1358d2333f0af0aade6ed4a0c991cfc5de7fb7a"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "github",
+      "path": "profiles/dev-builder/skills/software-development/github",
+      "status": "active",
+      "recorded_use_count": 26,
+      "session_skill_view_calls": 12,
+      "files": 17,
+      "sha256": "472f26e231eaf71586745221ec0c3d1e9526d3c4b70a32a3413fe78551f3d895"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "github-issue-to-pr",
+      "path": "profiles/dev-builder/skills/github/github-issue-to-pr",
+      "status": "active",
+      "recorded_use_count": 44,
+      "session_skill_view_calls": 6,
+      "files": 1,
+      "sha256": "f9cf8d1757eedce42fc7050d13e5bf250e3615536c2865f40e7e86fc3f358615"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "github-pr-workflow",
+      "path": "profiles/dev-builder/skills/github/github-pr-workflow",
+      "status": "active",
+      "recorded_use_count": 61,
+      "session_skill_view_calls": 14,
+      "files": 11,
+      "sha256": "16ca5438888514055db32f30d46e9df78b671709da7ce985306a39b09a863cd7"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "grill-me",
+      "path": "profiles/dev-builder/skills/mattpocock/productivity/grill-me",
+      "status": "active",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 1,
+      "files": 2,
+      "sha256": "000514e9633b1a2df8bef98549e99b6eaf1a8c3fabfad0e3b328440b3b226c90"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "grounded-citations",
+      "path": "profiles/dev-builder/skills/research/grounded-citations",
+      "status": "active",
+      "recorded_use_count": 25,
+      "session_skill_view_calls": 14,
+      "files": 5,
+      "sha256": "f3f6d58da04be2a2a4f02362b71b416d64df1231f9b94fbdddd0ae297ab2f370"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "harness-engineering",
+      "path": "profiles/dev-builder/skills/software-development/harness-engineering",
+      "status": "stale",
+      "recorded_use_count": 31,
+      "session_skill_view_calls": 6,
+      "files": 8,
+      "sha256": "a2f83733793f14509f462cf68164ed9b07e43af5849cffd6d38e28e139d91242"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "hermes-agent",
+      "path": "profiles/dev-builder/skills/autonomous-ai-agents/hermes-agent",
+      "status": "active",
+      "recorded_use_count": 48,
+      "session_skill_view_calls": 42,
+      "files": 5,
+      "sha256": "fa992583fb4ef1042039ddca6ff55ee1ceee1523e7cd9a6910521f929b04a913"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "hermes-s6-container-supervision",
+      "path": "profiles/dev-builder/archived/hermes-s6-container-supervision",
+      "status": "archived",
+      "recorded_use_count": 4,
+      "session_skill_view_calls": 0,
+      "files": 3,
+      "sha256": "a4a4900646d4c955905a19f1399b64ea0f20fa5b7f96c4d959991e77a1935981"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "home-automation-operations",
+      "path": "profiles/dev-builder/archived/home-automation-operations",
+      "status": "archived",
+      "recorded_use_count": 6,
+      "session_skill_view_calls": 2,
+      "files": 2,
+      "sha256": "b26aeacab15872ad691d086c5533bd418006e78ec108241f6ecd689a2e558f9f"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "ideation",
+      "path": "profiles/dev-builder/skills/creative/creative-ideation",
+      "status": "active",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 3,
+      "files": 2,
+      "sha256": "ac853cd491c8624f5a7db234822240707785e2f1f8b4d1c03070bd45681edd79"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "implement",
+      "path": "profiles/dev-builder/skills/mattpocock/engineering/implement",
+      "status": "active",
+      "recorded_use_count": 36,
+      "session_skill_view_calls": 15,
+      "files": 2,
+      "sha256": "1a7a56bca542f46ff8e42fa5ddd293dab21b38b6dad57e1bf3e76d12e41c5fc2"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "implementation-workflows",
+      "path": "profiles/dev-builder/skills/software-development/implementation-workflows",
+      "status": "active",
+      "recorded_use_count": 19,
+      "session_skill_view_calls": 12,
+      "files": 7,
+      "sha256": "866296e774041c52b68905082460b8039a0b740d778a91801a0c3350dcbe58a6"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "maintain-verification-skill",
+      "path": "profiles/dev-builder/skills/pstack/maintain-verification-skill",
+      "status": "active",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 1,
+      "files": 1,
+      "sha256": "7ed292757a0f2df1ded283bfe2f6d3e830e2dd3deca063de69211c77cfa64824"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "multica-operations",
+      "path": "profiles/dev-builder/skills/devops/multica-operations",
+      "status": "stale",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "f59abde15c1787a4eb9c821fe0012359322edc5ade4cd21165e851552e603582"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "native-mcp",
+      "path": "profiles/dev-builder/skills/mcp/native-mcp",
+      "status": "active",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 2,
+      "files": 1,
+      "sha256": "9d952a55fdae40fea0a2a827317644fad23e2971db699bf9e5562003f9a58eb4"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "obsidian",
+      "path": "profiles/dev-builder/skills/note-taking/obsidian",
+      "status": "stale",
+      "recorded_use_count": 15,
+      "session_skill_view_calls": 6,
+      "files": 5,
+      "sha256": "f47a80c70173ce4e9a362e33d5f81efc5225834ba0950bdda3f8955389720cc5"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "personal-crm-workflows",
+      "path": "profiles/dev-builder/archived/personal-crm-workflows",
+      "status": "archived",
+      "recorded_use_count": 9,
+      "session_skill_view_calls": 1,
+      "files": 4,
+      "sha256": "2e41891982972298dddea7a11695617d8d75ad7912a2a47a9a1c8d75355e5c2a"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "plan-architecture",
+      "path": "profiles/dev-builder/skills/plan-architecture",
+      "status": "active",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 3,
+      "files": 1,
+      "sha256": "3f442af72a7e60ff733d126c74ca89c2f4c5a63327dceeca261dc56c0d5dbd06"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "plan-create-prd",
+      "path": "profiles/dev-builder/skills/plan-create-prd",
+      "status": "active",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 3,
+      "files": 1,
+      "sha256": "765e591a9ad3732d982526df00911d0b450afcfd037846fa29fb36b506bb7e7d"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "plan-create-stories",
+      "path": "profiles/dev-builder/skills/plan-create-stories",
+      "status": "active",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 2,
+      "files": 1,
+      "sha256": "f0c327755d2936f62088af2cb6a539ea04ccae4f502f4e1837a0cd985d13ce50"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "principle-prove-it-works",
+      "path": "profiles/dev-builder/skills/pstack/principle-prove-it-works",
+      "status": "active",
+      "recorded_use_count": 4,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "b09d6f80b59301138fd44e3eebbab4b13a7b662df3a1d1677a2cd6f33c883884"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "product-price-monitor",
+      "path": "profiles/dev-builder/archived/product-price-monitor",
+      "status": "archived",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "4cedb857840ef3005e4a0ce4a7aa0cbe1b731511b23c4104c6415517a94760ef"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "production-agent-design",
+      "path": "profiles/dev-builder/skills/software-development/production-agent-design",
+      "status": "stale",
+      "recorded_use_count": 4,
+      "session_skill_view_calls": 0,
+      "files": 2,
+      "sha256": "737900226e8495c068f6b5177413f1a93ffd324f8ce10c56fbe869413cf45a2a"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "production-observability-agents",
+      "path": "profiles/dev-builder/skills/software-development/production-observability-agents",
+      "status": "active",
+      "recorded_use_count": 17,
+      "session_skill_view_calls": 1,
+      "files": 4,
+      "sha256": "95980c8519e9c1d86b81a0280115501836e29739fe8d8bb20177906261ba34c8"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "productivity-workflows",
+      "path": "profiles/dev-builder/skills/productivity/productivity-workflows",
+      "status": "active",
+      "recorded_use_count": 5,
+      "session_skill_view_calls": 3,
+      "files": 2,
+      "sha256": "5bb23ac1d4bc1ad666513e3036bf2a478549f8b490eb71032bfef51170906d30"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "rendered-page-extraction",
+      "path": "profiles/dev-builder/skills/web/rendered-page-extraction",
+      "status": "stale",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "e667fcad8b181a6b7b4743fd4713d5082b395b0e9cb355ab0549f47af0f8cd4c"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "research",
+      "path": "profiles/dev-builder/skills/mattpocock/engineering/research",
+      "status": "active",
+      "recorded_use_count": 20,
+      "session_skill_view_calls": 6,
+      "files": 2,
+      "sha256": "6d02c11a6a7192f3e6058533e1cc310060cfceddd118623ea53e6d1da605d659"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "research-source-ingestion",
+      "path": "profiles/dev-builder/archived/research-source-ingestion",
+      "status": "archived",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 4,
+      "sha256": "09ed6ea8d6ea4b4e7976a13068e4ba556397a04469bc4dafe2852ecd59ca918d"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "research-workflows",
+      "path": "profiles/dev-builder/skills/research/research-workflows",
+      "status": "active",
+      "recorded_use_count": 8,
+      "session_skill_view_calls": 4,
+      "files": 3,
+      "sha256": "4f6d3dd7a983c9814ab0a05edba769fef72a5e7c7e477dedb420e40fc52fbe76"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "sdlc-review",
+      "path": "profiles/dev-builder/skills/devops/sdlc-review",
+      "status": "stale",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "565c1ddb4f18fe2371ed72893f2f7bec46e34f4f451768ef9546e08356e85f68"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "shared-agent-cli-runtime",
+      "path": "profiles/dev-builder/skills/autonomous-ai-agents/shared-agent-cli-runtime",
+      "status": "active",
+      "recorded_use_count": 4,
+      "session_skill_view_calls": 2,
+      "files": 3,
+      "sha256": "e01120937d76fed30907ebeaccdde617837e2e51370ab34f30350eeeb6d0a2f1"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "skill-inventory-audit",
+      "path": "profiles/dev-builder/skills/skill-inventory-audit",
+      "status": "active",
+      "recorded_use_count": 7,
+      "session_skill_view_calls": 7,
+      "files": 1,
+      "sha256": "97fa9c8df1d8482e9325b04b182b1120ca95833ce76ece251b65bacb60dcf785"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "social-media-strategy",
+      "path": "profiles/dev-builder/archived/social-media-strategy",
+      "status": "archived",
+      "recorded_use_count": 11,
+      "session_skill_view_calls": 4,
+      "files": 2,
+      "sha256": "fe0481a404a01b35dfab99bb95d86798068e2c2a3f5fc83f9c5cd5c91ea15580"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "subagent-driven-development",
+      "path": "profiles/dev-builder/skills/software-development/subagent-driven-development",
+      "status": "active",
+      "recorded_use_count": 7,
+      "session_skill_view_calls": 1,
+      "files": 3,
+      "sha256": "94f298aea3533b9102f904f066aadca199d39bed49ef3e3459a83498e4fa3e0b"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "tdd",
+      "path": "profiles/dev-builder/skills/mattpocock/engineering/tdd",
+      "status": "active",
+      "recorded_use_count": 14,
+      "session_skill_view_calls": 12,
+      "files": 4,
+      "sha256": "c7bd017fedd677de169904f610438647a586350f82bd80ce0b12ad9d3cebddf5"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "teach",
+      "path": "profiles/dev-builder/skills/mattpocock/productivity/teach",
+      "status": "active",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 1,
+      "files": 6,
+      "sha256": "d646b14188296c5a2658360ac13e7236f1ec564ca4674052ad1c3d3c4fbba058"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "to-spec",
+      "path": "profiles/dev-builder/skills/mattpocock/engineering/to-spec",
+      "status": "active",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 1,
+      "files": 2,
+      "sha256": "0e05c1bea97c787e44e79f4e255a9afd6a377c24f29f0a3a014f0231ebe57d8c"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "to-tickets",
+      "path": "profiles/dev-builder/skills/mattpocock/engineering/to-tickets",
+      "status": "active",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 1,
+      "files": 2,
+      "sha256": "27f8a34226cc7109cd87895bb31e0163607348a6ef3653b8836b0be30dcf00e5"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "truenas-operations",
+      "path": "profiles/dev-builder/skills/devops/truenas-operations",
+      "status": "active",
+      "recorded_use_count": 34,
+      "session_skill_view_calls": 5,
+      "files": 8,
+      "sha256": "7b3d44b4aa69629621a9e4f6542b6101cdd791040b4a62251096d01165b70057"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "web-performance-audit",
+      "path": "profiles/dev-builder/skills/software-development/web-performance-audit",
+      "status": "active",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 1,
+      "files": 1,
+      "sha256": "440c1033656cfd60b47646fc79fc6c8813c63d10f9d8a4d3fb2d024c1a864836"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "webhook-subscriptions",
+      "path": "profiles/dev-builder/skills/devops/webhook-subscriptions",
+      "status": "active",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "7ef378b1c093a2ac4f66b0e9d08d5f2e3881f4e7b750d65771ab2bb4b9a2b5af"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "writing-great-skills",
+      "path": "profiles/dev-builder/skills/mattpocock/productivity/writing-great-skills",
+      "status": "active",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 0,
+      "files": 3,
+      "sha256": "35e3074217abf664be81122c6b9e0cd6aebdb577427c82e5846bf3742f70cbf5"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "writing-plans",
+      "path": "profiles/dev-builder/skills/software-development/writing-plans",
+      "status": "active",
+      "recorded_use_count": 12,
+      "session_skill_view_calls": 9,
+      "files": 1,
+      "sha256": "10f90617ee2ab1a78f157a48b9006d15a82761e2316bf6b360857c14a748a0d5"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "youtube-analysis",
+      "path": "profiles/dev-builder/skills/media/youtube-analysis",
+      "status": "active",
+      "recorded_use_count": 5,
+      "session_skill_view_calls": 4,
+      "files": 2,
+      "sha256": "2ad521c99ec786207e4bd1592946bf1d37cf360155024af62d9069b863db6810"
+    },
+    {
+      "profile": "health-coach",
+      "name": "apple-health-webhook-ingest",
+      "path": "profiles/health-coach/skills/health/apple-health-webhook-ingest",
+      "status": "active",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 1,
+      "files": 1,
+      "sha256": "42f16f1d8b555ed7723542fa3c5835e2d0269f29b98e8503ed6f291885282fcd"
+    },
+    {
+      "profile": "health-coach",
+      "name": "architecture-diagram",
+      "path": "profiles/health-coach/archived/architecture-diagram",
+      "status": "archived",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 0,
+      "files": 2,
+      "sha256": "7fb9288cd31a8d419ab858368f16a2eb5ef166fac7e499524a31dd8daea13c00"
+    },
+    {
+      "profile": "health-coach",
+      "name": "as-aware-training-coaching",
+      "path": "profiles/health-coach/skills/health/as-aware-training-coaching",
+      "status": "active",
+      "recorded_use_count": 42,
+      "session_skill_view_calls": 34,
+      "files": 5,
+      "sha256": "356186993814b605a2211e68a01687d5196d53c6647441cb50e3c251cdeaf390"
+    },
+    {
+      "profile": "health-coach",
+      "name": "ascii-art",
+      "path": "profiles/health-coach/skills/creative/ascii-art",
+      "status": "stale",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "8ed8ab9a345e1c06237c8dd3cfd9cdafef822292b3758db4b3493347ec0327d4"
+    },
+    {
+      "profile": "health-coach",
+      "name": "ascii-video",
+      "path": "profiles/health-coach/archived/ascii-video",
+      "status": "archived",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 10,
+      "sha256": "b813d270abfdf507dc2b2c292f82dc61676fb2774bbf9437c3ba2a4018be59bd"
+    },
+    {
+      "profile": "health-coach",
+      "name": "belgian-nutrition-logging",
+      "path": "profiles/health-coach/skills/health/belgian-nutrition-logging",
+      "status": "active",
+      "recorded_use_count": 13,
+      "session_skill_view_calls": 6,
+      "files": 1,
+      "sha256": "c4b88663366b95e99a81710f8027bd9237a62f723e57b8c6005daf127daca5ab"
+    },
+    {
+      "profile": "health-coach",
+      "name": "claude-design",
+      "path": "profiles/health-coach/archived/claude-design",
+      "status": "archived",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "b2ec02aad1186fbac62b4d94a70ca0479b9e7d27c2de4fc5f6df872e6e81f19f"
+    },
+    {
+      "profile": "health-coach",
+      "name": "comfyui",
+      "path": "profiles/health-coach/skills/creative/comfyui",
+      "status": "stale",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 33,
+      "sha256": "14c1b474f7e96fd96923bb4f954b5030b34a316809cb746963869a5e83a40f53"
+    },
+    {
+      "profile": "health-coach",
+      "name": "design-md",
+      "path": "profiles/health-coach/archived/design-md",
+      "status": "archived",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 2,
+      "sha256": "e9039e3a0a82e5c573725abafe6d7238170d2054f386aeddab525a9d38bdeec1"
+    },
+    {
+      "profile": "health-coach",
+      "name": "dogfood",
+      "path": "profiles/health-coach/archived/dogfood",
+      "status": "archived",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 3,
+      "sha256": "aab80d77ff70f74009b07dbfe5316b98c29c6e861d49ed171021b46365bcb715"
+    },
+    {
+      "profile": "health-coach",
+      "name": "excalidraw",
+      "path": "profiles/health-coach/skills/creative/excalidraw",
+      "status": "stale",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 0,
+      "files": 5,
+      "sha256": "b943148cbb4399719ea10c972df262996ba006b07be46586df8dc0365096a32d"
+    },
+    {
+      "profile": "health-coach",
+      "name": "google-workspace",
+      "path": "profiles/health-coach/archived/google-workspace",
+      "status": "archived",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 7,
+      "sha256": "941776453949224708ac3aaccc667cf1fa09e6d0f45104d6f38e9993f0612402"
+    },
+    {
+      "profile": "health-coach",
+      "name": "hermes-agent",
+      "path": "profiles/health-coach/archived/hermes-agent",
+      "status": "archived",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 1,
+      "files": 4,
+      "sha256": "2ba06985d253afbc4b8e28e7a894815c9b5c9aed292063754dff3d7109936821"
+    },
+    {
+      "profile": "health-coach",
+      "name": "himalaya",
+      "path": "profiles/health-coach/archived/himalaya",
+      "status": "archived",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 3,
+      "sha256": "87a1fcc62c4b72db2b5b068f484dd72c04d054cad6215c04ae3c1cc7572f3000"
+    },
+    {
+      "profile": "health-coach",
+      "name": "humanizer",
+      "path": "profiles/health-coach/archived/humanizer",
+      "status": "archived",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 2,
+      "sha256": "f25d2d4ff309e5951a733b24a0275f9182c58dd29adf02c25c3bdb57e2872b34"
+    },
+    {
+      "profile": "health-coach",
+      "name": "manim-video",
+      "path": "profiles/health-coach/archived/manim-video",
+      "status": "archived",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 17,
+      "sha256": "f1ab0167c8430694d0c0f2e69a1472b73ba7bc995b65990ca408eb63c04301f3"
+    },
+    {
+      "profile": "health-coach",
+      "name": "maps",
+      "path": "profiles/health-coach/archived/maps",
+      "status": "archived",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 2,
+      "sha256": "988e1abae1025100a9c5579af6f642884ea1afa71d051a8eb4aa55336464edbb"
+    },
+    {
+      "profile": "health-coach",
+      "name": "notion",
+      "path": "profiles/health-coach/archived/notion",
+      "status": "archived",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 2,
+      "sha256": "f338cb307f35c832d4bffadf7294215db833b1a851dc4aeaaf5264c9b918529d"
+    },
+    {
+      "profile": "health-coach",
+      "name": "obsidian",
+      "path": "profiles/health-coach/archived/obsidian",
+      "status": "archived",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 2,
+      "sha256": "4597f524d0169769ea2d421dfc307b8a421f9fe0c5a852e3b30c4628d915d1c3"
+    },
+    {
+      "profile": "health-coach",
+      "name": "ocr-and-documents",
+      "path": "profiles/health-coach/skills/productivity/ocr-and-documents",
+      "status": "stale",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 4,
+      "sha256": "79d02b5505cee372ff7b39e07e23448c4c52ecfa9377b0377c6bf86938474897"
+    },
+    {
+      "profile": "health-coach",
+      "name": "p5js",
+      "path": "profiles/health-coach/archived/p5js",
+      "status": "archived",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 17,
+      "sha256": "e1f81dc9343d947d869384c5aad50aff8c0a517a2140a3e9390bc81b996be963"
+    },
+    {
+      "profile": "health-coach",
+      "name": "plan",
+      "path": "profiles/health-coach/skills/software-development/plan",
+      "status": "active",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "088e8b5e055a22006a4098c9e882e4d5b93e5acfea3e9d2d436472f1e4ef1cde"
+    },
+    {
+      "profile": "health-coach",
+      "name": "popular-web-designs",
+      "path": "profiles/health-coach/archived/popular-web-designs",
+      "status": "archived",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 0,
+      "files": 55,
+      "sha256": "0ff333a9c1c8f400632a2299c396c2e46a9382654035106853f6e0fe87065b03"
+    },
+    {
+      "profile": "health-coach",
+      "name": "powerpoint",
+      "path": "profiles/health-coach/archived/powerpoint",
+      "status": "archived",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 8,
+      "sha256": "9d39d8a3bae1b5e5941f74a4f2710d219f548b8b0c576dddd1eb11dda3fd77b9"
+    },
+    {
+      "profile": "health-coach",
+      "name": "pretext",
+      "path": "profiles/health-coach/skills/creative/pretext",
+      "status": "stale",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 4,
+      "sha256": "89bf5cf3700b399f7de95f82620d2a7b27d61739346627e970582659ba1afb6c"
+    },
+    {
+      "profile": "health-coach",
+      "name": "requesting-code-review",
+      "path": "profiles/health-coach/archived/requesting-code-review",
+      "status": "archived",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "02b24d488153754dc59542214364cf6e5e5fcf7e04845c41ed0d62d5b905ef08"
+    },
+    {
+      "profile": "health-coach",
+      "name": "research-paper-writing",
+      "path": "profiles/health-coach/skills/research/research-paper-writing",
+      "status": "stale",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 52,
+      "sha256": "ec8c0f71ee4f27b92b4f3ca6afff5d8ae0927a1bd727397429b0060d88a168e4"
+    },
+    {
+      "profile": "health-coach",
+      "name": "spike",
+      "path": "profiles/health-coach/archived/spike",
+      "status": "archived",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "29a44aaabe9646051946909299bc7f2d4fd11f4f3f45807803aff18ae91a5f5e"
+    },
+    {
+      "profile": "health-coach",
+      "name": "systematic-debugging",
+      "path": "profiles/health-coach/archived/systematic-debugging",
+      "status": "archived",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "148a866b4c84354abc5fadbd50c50e584cfafbe4babb597209f5c203642dc3fb"
+    },
+    {
+      "profile": "health-coach",
+      "name": "test-driven-development",
+      "path": "profiles/health-coach/archived/test-driven-development",
+      "status": "archived",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "c4dcae20adb88c9392d7e1b2210844933417288bb40ad845faa9542b9755c0a7"
+    },
+    {
+      "profile": "health-coach",
+      "name": "webhook-subscriptions",
+      "path": "profiles/health-coach/skills/devops/webhook-subscriptions",
+      "status": "active",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 1,
+      "files": 1,
+      "sha256": "7ef378b1c093a2ac4f66b0e9d08d5f2e3881f4e7b750d65771ab2bb4b9a2b5af"
+    },
+    {
+      "profile": "health-coach",
+      "name": "workout-app-maintenance",
+      "path": "profiles/health-coach/skills/health/workout-app-maintenance",
+      "status": "active",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 1,
+      "files": 1,
+      "sha256": "3320cbc4f43f707da2ddf7b73fb0f5459163d3d5315b457b7be1438fe54453c9"
+    },
+    {
+      "profile": "health-coach",
+      "name": "xurl",
+      "path": "profiles/health-coach/archived/xurl",
+      "status": "archived",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "ad7c687a34b64ea1c3544874c6e61d8d169a17955b595ed9e7a9f6140e6f767b"
+    },
+    {
+      "profile": "health-coach",
+      "name": "yuanbao",
+      "path": "profiles/health-coach/skills/yuanbao",
+      "status": "stale",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "c37225ede6d75a92f2536f5779516eb811ce48a0cdd1b0b1888bd48225908225"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "ascii-art",
+      "path": "profiles/herbalife-business/archived/creative/ascii-art",
+      "status": "archived",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 9,
+      "sha256": "77c4f520096e0cae10734649eaa9633e0ef2214fefed3955f09209a0d318c44c"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "claude-design",
+      "path": "profiles/herbalife-business/archived/claude-design",
+      "status": "archived",
+      "recorded_use_count": 5,
+      "session_skill_view_calls": 0,
+      "files": 60,
+      "sha256": "75c3620a5cd1ead5ce7b4688a2343404742562dd4a796f677358a0bc3cd27f9e"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "dogfood",
+      "path": "profiles/herbalife-business/archived/dogfood",
+      "status": "archived",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 3,
+      "sha256": "aab80d77ff70f74009b07dbfe5316b98c29c6e861d49ed171021b46365bcb715"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "excalidraw",
+      "path": "profiles/herbalife-business/archived/creative/excalidraw",
+      "status": "archived",
+      "recorded_use_count": 3,
+      "session_skill_view_calls": 0,
+      "files": 5,
+      "sha256": "a203ff6d8802cc2391d1ea7cc7b72e419faf9e78d65f3c78ce3475b29c2a5fd5"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "expo-saas-production-readiness",
+      "path": "profiles/herbalife-business/archived/expo-saas-production-readiness",
+      "status": "archived",
+      "recorded_use_count": 6,
+      "session_skill_view_calls": 0,
+      "files": 2,
+      "sha256": "84a9f04b00daed9d3e0327e9a408ff9bbd1cdc8f49beae7c07ae4c4eacb75459"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "github-pr-workflow",
+      "path": "profiles/herbalife-business/skills/github/github-pr-workflow",
+      "status": "stale",
+      "recorded_use_count": 9,
+      "session_skill_view_calls": 0,
+      "files": 11,
+      "sha256": "807f7d8b84438a14a32c7e8d200908b48dfe4ce4eeca114a45698164f780e8b0"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "google-workspace",
+      "path": "profiles/herbalife-business/archived/productivity/google-workspace",
+      "status": "archived",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 6,
+      "sha256": "2305c75595dc198e10e690be709e2a454a96a1481c476ac58b85c835048fd04d"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "herbalife-daily-outreach",
+      "path": "profiles/herbalife-business/skills/business/herbalife-daily-outreach",
+      "status": "active",
+      "recorded_use_count": 6,
+      "session_skill_view_calls": 6,
+      "files": 1,
+      "sha256": "cd4e331e0a7eda8ec4cd656692c9ea4cfe4a32bb4c28244ebffe60a8f66f6438"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "hermes-agent",
+      "path": "profiles/herbalife-business/skills/autonomous-ai-agents/hermes-agent",
+      "status": "active",
+      "recorded_use_count": 14,
+      "session_skill_view_calls": 3,
+      "files": 6,
+      "sha256": "aa600e506ab813bdc493c1c96b9dee4db8778b478e96210e25a1e6897ff1f656"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "hermes-s6-container-supervision",
+      "path": "profiles/herbalife-business/skills/software-development/hermes-s6-container-supervision",
+      "status": "active",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 2,
+      "sha256": "8c4d27db13960e9ebad33122bd229e0d02a1baa1cb215374d8e4ba05ef98d7c3"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "jupyter-live-kernel",
+      "path": "profiles/herbalife-business/archived/data-science/jupyter-live-kernel",
+      "status": "archived",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "5eb40567439d0504900866aeafa547a6085f50ffa68be07d3277f0b1c16fe2ae"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "manim-video",
+      "path": "profiles/herbalife-business/archived/creative/manim-video",
+      "status": "archived",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 17,
+      "sha256": "861b209946f4696f01b45bcf96463734f108676f9ed7ffe8d5e8d63da13d39dc"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "model-experimentation-and-serving",
+      "path": "profiles/herbalife-business/skills/mlops/model-experimentation-and-serving",
+      "status": "active",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 1,
+      "sha256": "f8f129ae9d1f7228a46fc49d7353cdfcf61734c4eb7872275048465cf0fa043d"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "notion",
+      "path": "profiles/herbalife-business/archived/productivity/notion",
+      "status": "archived",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 2,
+      "sha256": "98bfccaef84ba1d9dbeb7328a30232cef57d96e761ee4739819637876df164b2"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "obsidian",
+      "path": "profiles/herbalife-business/archived/note-taking/obsidian",
+      "status": "archived",
+      "recorded_use_count": 11,
+      "session_skill_view_calls": 4,
+      "files": 4,
+      "sha256": "8703321f247385a5115b5e3fff88c1fe4cbd4b744c1e9955f4373baefd8ee205"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "ocr-and-documents",
+      "path": "profiles/herbalife-business/archived/productivity/ocr-and-documents",
+      "status": "archived",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 4,
+      "sha256": "d84f04129d8d4682afb92602c71274c360c0d6cfb3c50f8e0fed1bf47b345473"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "p5js",
+      "path": "profiles/herbalife-business/archived/creative/p5js",
+      "status": "archived",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 17,
+      "sha256": "a44157a17340c441260c1442801212ec4416d7dad9ee4609845512179a823e38"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "powerpoint",
+      "path": "profiles/herbalife-business/archived/productivity/powerpoint",
+      "status": "archived",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 50,
+      "sha256": "84be81bf35b03ea8e9bdaa175ea3de6f91053953930864ce215aee414b1abc42"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "research-paper-writing",
+      "path": "profiles/herbalife-business/skills/research/research-paper-writing",
+      "status": "stale",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 0,
+      "files": 52,
+      "sha256": "ec8c0f71ee4f27b92b4f3ca6afff5d8ae0927a1bd727397429b0060d88a168e4"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "research-source-ingestion",
+      "path": "profiles/herbalife-business/skills/research/research-source-ingestion",
+      "status": "active",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 1,
+      "files": 4,
+      "sha256": "09ed6ea8d6ea4b4e7976a13068e4ba556397a04469bc4dafe2852ecd59ca918d"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "weekly-review-planning",
+      "path": "profiles/herbalife-business/skills/productivity/weekly-review-planning",
+      "status": "stale",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 2,
+      "files": 1,
+      "sha256": "caa01ebb062d84a1353cb0be2957f99f486374d677d0669701ce74da95663acf"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "workspace-content-operations",
+      "path": "profiles/herbalife-business/skills/productivity/workspace-content-operations",
+      "status": "active",
+      "recorded_use_count": 2,
+      "session_skill_view_calls": 1,
+      "files": 1,
+      "sha256": "f450b9fd8f15485f8900d151dfd2a84c5efe1c07e19f24ab99d65dc201bb97d1"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "writing-plans",
+      "path": "profiles/herbalife-business/skills/software-development/writing-plans",
+      "status": "active",
+      "recorded_use_count": 4,
+      "session_skill_view_calls": 1,
+      "files": 1,
+      "sha256": "10f90617ee2ab1a78f157a48b9006d15a82761e2316bf6b360857c14a748a0d5"
+    },
+    {
+      "profile": "recovered",
+      "name": "evaluating-llms-harness",
+      "path": "recovered/evaluating-llms-harness",
+      "status": "recovered-copy",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 5,
+      "used_in_profiles": [
+        "dev-builder"
+      ],
+      "source_profile": "health-coach",
+      "note": "Historical profile copy is missing; this is an available copy from another profile, not a reconstruction of the original version.",
+      "sha256": "3fe0bc4e338a4ef7347ac122352ab2c40adb26be453d84c647cd4670f45abf91"
+    },
+    {
+      "profile": "recovered",
+      "name": "segment-anything-model",
+      "path": "recovered/segment-anything-model",
+      "status": "recovered-copy",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 3,
+      "used_in_profiles": [
+        "dev-builder"
+      ],
+      "source_profile": "herbalife-business",
+      "note": "Historical profile copy is missing; this is an available copy from another profile, not a reconstruction of the original version.",
+      "sha256": "bbb91c890ddf6feb6741db6416ab329a31302fc5d8a3b8831a06f04de231e668"
+    },
+    {
+      "profile": "recovered",
+      "name": "serving-llms-vllm",
+      "path": "recovered/serving-llms-vllm",
+      "status": "recovered-copy",
+      "recorded_use_count": 1,
+      "session_skill_view_calls": 0,
+      "files": 5,
+      "used_in_profiles": [
+        "dev-builder"
+      ],
+      "source_profile": "health-coach",
+      "note": "Historical profile copy is missing; this is an available copy from another profile, not a reconstruction of the original version.",
+      "sha256": "4dda02b0c88396ea52937fd93c323b59d5c8c5b76c5f2d990f9db728f0601b28"
+    }
+  ],
+  "historically_used_but_missing": [
+    {
+      "profile": "dev-builder",
+      "name": "audiocraft-audio-generation",
+      "reason": "recorded historical use, skill files no longer installed"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "evaluating-llms-harness",
+      "reason": "recorded historical use, skill files no longer installed"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "segment-anything-model",
+      "reason": "recorded historical use, skill files no longer installed"
+    },
+    {
+      "profile": "dev-builder",
+      "name": "serving-llms-vllm",
+      "reason": "recorded historical use, skill files no longer installed"
+    },
+    {
+      "profile": "herbalife-business",
+      "name": "audiocraft-audio-generation",
+      "reason": "recorded historical use, skill files no longer installed"
+    }
+  ],
+  "excluded_support_files": [
+    {
+      "profile": "health-coach",
+      "skill": "research-paper-writing",
+      "file": "templates/colm2025/colm2025_conference.pdf",
+      "reason": "binary: not published without review"
+    },
+    {
+      "profile": "health-coach",
+      "skill": "research-paper-writing",
+      "file": "templates/iclr2026/iclr2026_conference.pdf",
+      "reason": "binary: not published without review"
+    },
+    {
+      "profile": "health-coach",
+      "skill": "research-paper-writing",
+      "file": "templates/icml2026/example_paper.pdf",
+      "reason": "binary: not published without review"
+    },
+    {
+      "profile": "health-coach",
+      "skill": "research-paper-writing",
+      "file": "templates/icml2026/icml_numpapers.pdf",
+      "reason": "binary: not published without review"
+    },
+    {
+      "profile": "herbalife-business",
+      "skill": "research-paper-writing",
+      "file": "templates/colm2025/colm2025_conference.pdf",
+      "reason": "binary: not published without review"
+    },
+    {
+      "profile": "herbalife-business",
+      "skill": "research-paper-writing",
+      "file": "templates/iclr2026/iclr2026_conference.pdf",
+      "reason": "binary: not published without review"
+    },
+    {
+      "profile": "herbalife-business",
+      "skill": "research-paper-writing",
+      "file": "templates/icml2026/example_paper.pdf",
+      "reason": "binary: not published without review"
+    },
+    {
+      "profile": "herbalife-business",
+      "skill": "research-paper-writing",
+      "file": "templates/icml2026/icml_numpapers.pdf",
+      "reason": "binary: not published without review"
+    }
+  ],
+  "redaction_counts": {
+    "credential_pattern": 12,
+    "environment_privacy": 69
+  },
+  "public_export_review": {
+    "webhook_secret_occurrences_removed": 29,
+    "personal_health_sections_generalized": 11,
+    "additional_bot_identifiers_redacted": 2,
+    "oauth_client_identifiers_redacted": 3,
+    "private_drive_identifier_lines_removed": 3,
+    "local_profile_files_modified": false,
+    "note": "Automated pattern and configured-value scans plus targeted human-model review. This is not a guarantee against every possible sensitive string; inspect before reuse. The export does not include live credentials."
+  }
+}

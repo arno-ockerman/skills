@@ -1,0 +1,360 @@
+# CI/CD Pipeline — Expo (React Native) + Vercel (Web) + EAS (Mobile) + Supabase (Backend)
+
+**Generated:** 2026-06-15  
+**Use Case:** Production deployment pipeline for Club App (multi-tenant fitness SaaS)
+
+## Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                        CI/CD PIPELINE OVERVIEW                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  Push/PR ──▶ Lint & Typecheck ──▶ Unit Tests ──▶ E2E Smoke (Playwright)   │
+│                              │                                              │
+│                              ▼                                              │
+│                    Supabase Migration Check (PR only)                       │
+│                              │                                              │
+│                              ▼                                              │
+│  PR/Preview ──▶ Vercel Preview ──▶ EAS Update (Preview) ──▶ Supabase Fns  │
+│                              │                                              │
+│                              ▼                                              │
+│  Manual Dispatch ──▶ Vercel Prod ──▶ EAS Build (iOS/Android) ──▶ Submit   │
+│                              │                                              │
+│                              ▼                                              │
+│                    Supabase DB Push ──▶ Edge Functions Deploy              │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+## Required Secrets
+
+### GitHub Repository Settings → Secrets → Actions
+
+| Secret | Source | Purpose |
+|--------|--------|---------|
+| `VERCEL_TOKEN` | Vercel Account → Settings → Tokens | Vercel deployment auth |
+| `VERCEL_ORG_ID` | Vercel Project → Settings → General | Org identifier |
+| `VERCEL_PROJECT_ID` | Vercel Project → Settings → General | Project identifier |
+| `EXPO_TOKEN` | Expo Dashboard → Access Tokens | EAS build/submit auth |
+| `SUPABASE_ACCESS_TOKEN` | Supabase Dashboard → Settings → Access Tokens | Supabase CLI auth |
+| `SUPABASE_PROJECT_REF` | Supabase URL: `https://<ref>.supabase.co` | Project reference |
+| `SUPABASE_DB_PASSWORD` | Supabase → Settings → Database → Password | Database migrations |
+| `CLERK_PUBLISHABLE_KEY` | Clerk Dashboard → API Keys | Frontend auth |
+| `CLERK_WEBHOOK_SECRET` | Clerk Webhook → Signing Secret | User sync webhook |
+| `CLERK_SECRET_KEY` | Clerk Dashboard → API Keys | Backend auth |
+| `MOLLIE_API_KEY` | Mollie Dashboard → API Keys (Live) | Payments |
+| `MOLLIE_WEBHOOK_SECRET` | Mollie Dashboard → Webhooks | Payment webhooks |
+
+## CI/CD Workflow (`.github/workflows/ci-cd.yml`)
+
+```yaml
+# Club App — CI/CD Pipeline
+# Triggers: push to main, PR to main, manual dispatch
+# Jobs: lint → typecheck → test → e2e-smoke → deploy-preview → deploy-production
+
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'preview'
+        type: choice
+        options: [preview, production]
+
+env:
+  NODE_VERSION: '22'
+  EXPO_VERSION: '~54.0.33'
+
+jobs:
+  lint-and-typecheck:
+    name: Lint & Typecheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: ${{ env.NODE_VERSION }}, cache: 'npm' }
+      - run: npm ci
+      - run: npm run lint
+      - run: npx tsc --noEmit
+
+  test:
+    name: Unit & Integration Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: ${{ env.NODE_VERSION }}, cache: 'npm' }
+      - run: npm ci
+      - run: npm test -- --ci --coverage
+      - uses: codecov/codecov-action@v4
+        if: always()
+        with: { flags: unit, files: ./coverage/lcov.info }
+
+  e2e-smoke:
+    name: E2E Smoke Tests (Web)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: [lint-and-typecheck]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: ${{ env.NODE_VERSION }}, cache: 'npm' }
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Build web app
+        run: npm run export:web
+        env:
+          EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.CLERK_PUBLISHABLE_KEY }}
+          EXPO_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          EXPO_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          EXPO_PUBLIC_ENABLE_WEB_AUTH: 'true'
+          EXPO_PUBLIC_E2E_MODE: 'true'
+      - name: Start preview server
+        run: |
+          npx serve -s web-build -l 3000 &
+          sleep 5
+        shell: bash
+      - run: npm run e2e:smoke
+        env:
+          EXPO_PUBLIC_E2E_MODE: 'true'
+          PLAYWRIGHT_BASE_URL: 'http://localhost:3000'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: playwright-report, path: test-results/, retention-days: 7 }
+
+  supabase-migration-check:
+    name: Supabase Migration Check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: supabase/setup-cli@v1
+        with: { version: '>=2.0.0' }
+      - run: supabase start
+      - run: supabase db reset --linked
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+      - run: supabase migration list
+
+  deploy-preview:
+    name: Deploy Preview
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: [lint-and-typecheck, test, e2e-smoke]
+    if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    environment: preview
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: ${{ env.NODE_VERSION }}, cache: 'npm' }
+      - run: npm ci
+      # Vercel Preview
+      - uses: amondnet/vercel-action@v25
+        if: always()
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod=false'
+        env:
+          EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.CLERK_PUBLISHABLE_KEY }}
+          EXPO_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          EXPO_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          EXPO_PUBLIC_ENABLE_WEB_AUTH: 'true'
+      # EAS Update (Preview)
+      - uses: expo/expo-github-action@v8
+        with: { eas-version: latest, token: ${{ secrets.EXPO_TOKEN }}, packager: npm }
+      - run: npx expo-doctor
+      - run: eas update --branch preview --message "Preview deploy from ${{ github.sha }}"
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+      # Supabase Edge Functions (Preview)
+      - uses: supabase/setup-cli@v1
+      - run: |
+          supabase functions deploy clerk-webhook --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+          supabase functions deploy create-mollie-payment --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+          supabase functions deploy mollie-webhook --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+          supabase functions deploy start-trial --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          CLERK_WEBHOOK_SECRET: ${{ secrets.CLERK_WEBHOOK_SECRET }}
+          MOLLIE_API_KEY: ${{ secrets.MOLLIE_API_KEY }}
+          CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
+
+  deploy-production:
+    name: Deploy Production
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    needs: [lint-and-typecheck, test, e2e-smoke, deploy-preview]
+    if: github.event_name == 'workflow_dispatch' && github.event.inputs.environment == 'production'
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: ${{ env.NODE_VERSION }}, cache: 'npm' }
+      - run: npm ci
+      # Vercel Production
+      - uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod=true'
+        env:
+          EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{ secrets.CLERK_PUBLISHABLE_KEY }}
+          EXPO_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          EXPO_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+          EXPO_PUBLIC_ENABLE_WEB_AUTH: 'true'
+      # EAS Build (Production)
+      - uses: expo/expo-github-action@v8
+        with: { eas-version: latest, token: ${{ secrets.EXPO_TOKEN }}, packager: npm }
+      - run: eas build --platform ios --profile production --non-interactive
+        timeout-minutes: 60
+      - run: eas build --platform android --profile production --non-interactive
+        timeout-minutes: 60
+      # EAS Submit (enable after first successful build)
+      # - run: eas submit --platform ios --profile production --non-interactive
+      # - run: eas submit --platform android --profile production --non-interactive
+      # Supabase Production
+      - uses: supabase/setup-cli@v1
+      - run: supabase db push --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_DB_PASSWORD }}
+      - run: |
+          supabase functions deploy clerk-webhook --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+          supabase functions deploy create-mollie-payment --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+          supabase functions deploy mollie-webhook --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+          supabase functions deploy start-trial --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+          CLERK_WEBHOOK_SECRET: ${{ secrets.CLERK_WEBHOOK_SECRET }}
+          MOLLIE_API_KEY: ${{ secrets.MOLLIE_API_KEY }}
+          CLERK_SECRET_KEY: ${{ secrets.CLERK_SECRET_KEY }}
+      # Post-deploy smoke test
+      - run: |
+          sleep 30
+          curl -f https://club-app.vercel.app || exit 1
+        env: { VERCEL_URL: https://club-app.vercel.app }
+```
+
+## Expo Configuration (`eas.json`)
+
+```json
+{
+  "build": {
+    "production": {
+      "ios": { "simulator": false, "enterprise": false },
+      "android": { "buildType": "app-bundle" }
+    },
+    "preview": { "distribution": "internal" }
+  },
+  "submit": {
+    "production": { "ios": "app-store", "android": "play-store" }
+  }
+}
+```
+
+## Vercel Configuration
+
+```json
+// vercel.json (optional - auto-detects Expo web export)
+{
+  "buildCommand": "npm run export:web",
+  "outputDirectory": "web-build",
+  "framework": "other",
+  "installCommand": "npm ci"
+}
+```
+
+## Supabase Secrets (Project Settings → Edge Functions)
+
+```bash
+# Set via Supabase Dashboard or CLI
+supabase secrets set CLERK_WEBHOOK_SECRET=whsec_...
+supabase secrets set CLERK_SECRET_KEY=sk_...
+supabase secrets set MOLLIE_API_KEY=live_...
+supabase secrets set MOLLIE_WEBHOOK_SECRET=...
+```
+
+## Local Development Commands
+
+```bash
+# Install dependencies
+npm ci
+
+# Run all checks locally
+npm run lint
+npx tsc --noEmit
+npm test -- --ci
+npm run e2e:smoke
+
+# Preview deployment
+npm run export:web
+npx serve -s web-build -l 3000
+npm run e2e:smoke
+
+# EAS Update (OTA)
+eas update --branch preview --message "Local preview"
+
+# Supabase local development
+supabase start
+supabase db push --local
+supabase functions serve --env-file .env.local
+```
+
+## Production Smoke Test Checklist
+
+| Flow | Test Steps | Expected |
+|------|------------|----------|
+| **Auth** | Signup → verify email → login → club select | Redirect to club context |
+| **Schedule** | View sessions (own club only) | Multi-tenant isolation |
+| **Booking** | Book with credits → waitlist | Credits deducted, booking confirmed |
+| **Cancellation** | Cancel >2h before | Credits refunded |
+| **Check-in** | Staff scans QR | Check-in recorded |
+| **Payment** | Buy credit pack via Mollie | Credits added after payment |
+| **Loyalty** | Complete session → points | Points added, tier checked |
+| **Admin** | Owner dashboard | Own club data only |
+
+## Rollback Procedures
+
+| Component | Rollback Command |
+|-----------|------------------|
+| Vercel | `vercel rollback` or promote previous deployment |
+| EAS | Re-submit previous build from Expo dashboard |
+| Supabase DB | `supabase db reset --linked` (staging) / backup restore (prod) |
+| Edge Functions | `supabase functions deploy <name> --project-ref <ref>` with previous version |
+
+## Common Issues & Fixes
+
+| Issue | Fix |
+|-------|-----|
+| Vercel deploy fails | Check `EXPO_PUBLIC_*` env vars in Vercel dashboard |
+| EAS build fails | Run `npx expo-doctor` locally first |
+| Supabase migration fails | Check `supabase migration list` for conflicts |
+| Clerk webhook 401 | Verify `CLERK_WEBHOOK_SECRET` matches Clerk dashboard |
+| Playwright timeout | Increase `timeout-minutes`, check base URL |
+| Mollie webhook 404 | Confirm webhook URL in Mollie dashboard |
+
+## Key Files in Repo
+
+```
+.github/workflows/ci-cd.yml          # This pipeline
+eas.json                             # EAS build profiles
+package.json                         # npm scripts (export:web, e2e:smoke, etc.)
+supabase/config.toml                 # Supabase CLI config
+.clerk/                              # Clerk config (if used)
+vercel.json                          # Vercel config (optional)
+DEPLOYMENT_CHECKLIST.md              # Full deployment guide
+```

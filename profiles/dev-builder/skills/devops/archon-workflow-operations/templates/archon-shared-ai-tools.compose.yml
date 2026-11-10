@@ -1,0 +1,52 @@
+services:
+  archon:
+    command:
+      - run
+      - start
+    container_name: archon
+    entrypoint:
+      - bun
+    env_file:
+      - /mnt/HomeNAS/appdata/archon/data/.env
+    environment:
+      AI_TOOLS_BIN: /opt/ai-tools/bin
+      AI_TOOLS_CACHE: /opt/ai-tools/cache
+      AI_TOOLS_CONFIG: /opt/ai-tools/config
+      AI_TOOLS_ROOT: /opt/ai-tools
+      AI_TOOLS_WORK: /opt/ai-tools/work
+      ARCHON_DOCKER: "true"
+      ARCHON_HOME: /.archon
+      CLAUDE_BIN_PATH: /opt/ai-tools/bin/claude
+      CLAUDE_HOME_DIR: /opt/ai-tools/config/claude/home
+      CODEX_BIN_PATH: /opt/ai-tools/bin/codex
+      CODEX_HOME_DIR: /opt/ai-tools/config/codex/home
+      GH_CONFIG_DIR: /opt/ai-tools/config/gh
+      GITHUB_CONFIG_DIR: /opt/ai-tools/config/gh
+      GIT_CONFIG_GLOBAL: /opt/ai-tools/config/git/config
+      HOME: /home/appuser
+      PATH: /opt/ai-tools/bin:/opt/ai-tools/work/npm-prefix/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+      PORT: "3000"
+      XDG_CACHE_HOME: /opt/ai-tools/cache/xdg
+      XDG_CONFIG_HOME: /opt/ai-tools/config/xdg
+      XDG_STATE_HOME: /opt/ai-tools/work/state
+    healthcheck:
+      interval: 30s
+      retries: 3
+      start_period: 20s
+      test:
+        - CMD
+        - curl
+        - -f
+        - http://localhost:3000/api/health
+      timeout: 10s
+    image: ghcr.io/coleam00/archon:0.9.0
+    ports:
+      - "30430:3000"
+    restart: unless-stopped
+    user: "568:568"
+    volumes:
+      - /mnt/HomeNAS/appdata/archon/data:/.archon
+      - /mnt/HomeNAS/appdata/archon/home:/home/appuser
+      - /mnt/HomeNAS/appdata/ai-tools:/opt/ai-tools
+      - /mnt/HomeNAS/appdata/ai-context/ProductivityCenter:/opt/ai-context/ProductivityCenter
+    working_dir: /app
