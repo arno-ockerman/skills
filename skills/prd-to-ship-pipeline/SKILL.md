@@ -52,7 +52,7 @@ One issue per run. Never combine multiple issues into one invocation: each run g
 
 Where the workflows actually live in Arno's environment (verify again before quoting this):
 
-- **Server** `https://archon.beinspiredbyus.be` (v0.10.1, docker, `/api/workflows`) has the composed sdlc pack: `archon-ship`, `archon-triage`, `archon-plan`, `archon-investigate`, `archon-deliver`, `archon-implement`, `archon-validate`, `archon-review`, `archon-pr`, `archon-upkeep`. `archon-ship` runs its own triage; its target may be an issue URL, document, plan, report, or free-form request.
+- **Server** `https://archon.beinspiredbyus.be` (v0.13.2, docker, `/api/workflows`) sits behind **Cloudflare Access**: unauthenticated calls get a 302 to a login page. Send `CF-Access-Client-Id: $CF_ACCESS_CLIENT_ID` and `CF-Access-Client-Secret: $CF_ACCESS_CLIENT_SECRET` (service token, loaded from `~/.config/archon-factory.env`; never print or commit it). It has the composed sdlc pack: `archon-ship`, `archon-triage`, `archon-plan`, `archon-investigate`, `archon-deliver`, `archon-implement`, `archon-validate`, `archon-review`, `archon-pr`, `archon-upkeep`. `archon-ship` runs its own triage; its target may be an issue URL, document, plan, report, or free-form request.
 - **CLI** `/opt/ai-tools/bin/archon` (v0.6.0, source checkout `/opt/ai-tools/src/Archon`) ships only the legacy defaults — `archon-idea-to-pr`, `archon-plan-to-pr`, `archon-feature-development`, `archon-fix-github-issue`, `archon-interactive-prd`, and 16 more. It has **no** `archon-ship`/`archon-triage`: `archon workflow run archon-ship` from the CLI cannot work until the pack is vendored into the repo's `.archon/workflows/`.
 
 Routes to start a run:
@@ -79,7 +79,7 @@ Legitimate for one coherent piece of work where a single PR is the right unit; w
 - Archon's GitHub adapter triggers on issue/PR **comments** only, not on issue descriptions. Mentioning the bot in a PRD or issue body does nothing.
 - Do not point triage/ship at a half-written PRD: triage judges the contract (problem, why, why now, outcome, invariants, acceptance) and routes `NEEDS_CONTRACT_WORK` when one is missing. A PRD that merely lists features will not become a run.
 - Creating issues is not reversible in one click — keep the confirmation gate from step 3.
-- Server and CLI versions differ (0.10.1 vs 0.6.0). Never promise a workflow name that exists on only one of them; check `/api/workflows` or `archon workflow list --json` first.
+- Server and CLI versions differ (0.13.2 vs 0.6.0). Never promise a workflow name that exists on only one of them; check `/api/workflows` or `archon workflow list --json` first.
 
 ## Vendored source
 
