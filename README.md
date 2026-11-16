@@ -18,7 +18,7 @@ The repository also contains a sanitized export of **128 distinct used Hermes sk
 |---|---|
 | [`plan-create-prd`](skills/plan-create-prd/SKILL.md) | A new feature or product idea needs a problem-first PRD (intent: what and why, never how). |
 | [`plan-architecture`](skills/plan-architecture/SKILL.md) | A PRD or epic needs its high-level architecture decided: options, trade-offs, a recommendation, and what to spike. |
-| [`plan-create-stories`](skills/plan-create-stories/SKILL.md) | A PRD must become engineer-ready GitHub or Jira tickets. |
+| [`plan-create-stories`](skills/plan-create-stories/SKILL.md) | A PRD must become engineer-ready GitHub or Jira tickets, or an epic's sibling issues need a contract check before the factory. |
 | [`prd-to-ship-pipeline`](skills/prd-to-ship-pipeline/SKILL.md) | You want to take an idea through PRD → issues → Archon ship runs. |
 | [`skill-inventory-audit`](skills/skill-inventory-audit/SKILL.md) | You are pruning or reviewing the installed Claude/Codex skills. |
 

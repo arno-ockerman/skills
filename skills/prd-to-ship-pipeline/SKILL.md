@@ -41,6 +41,7 @@ plan-create-stories <prd-path> --platform github [--milestone "<name>"]
 - Reads the PRD's Implementation Phases (phase = ticket group) and User Stories (story = one ticket, split when it hides more than about a day of work).
 - Prints the proposed ticket list first and **waits for confirmation** before creating anything.
 - Creates issues with `gh issue create`, acceptance criteria as a markdown checklist, one `phase-N` label per phase (creates missing labels with `gh label create`).
+- Runs the **epic contract check** (its step 2) over all issues of the epic before anything is created. No issue gets `factory-ready` while the check lists an open conflict for it; product conflicts go to the owner as a question on the epic. Re-run it when a sibling is added or edited. It reads issue texts only (target under 20k tokens), against the 700k+ tokens a factory triage spends finding the same conflict.
 - Requires PRD sections named Implementation Phases and User Stories. If the PRD lacks them, say so and either add them or slice manually — never invent tickets the PRD does not support.
 - `gh` here is `/opt/ai-tools/bin/gh`, authenticated as `arno-ockerman` (scopes: repo, read:org, workflow).
 
@@ -83,4 +84,4 @@ Legitimate for one coherent piece of work where a single PR is the right unit; w
 
 ## Vendored source
 
-The three planning skills came from `coleam00/skills` v1.3.1 (commit `dfaa9105741fc5ba9b16b6a72551cad4bad70415`), copied verbatim except for a trigger-first first sentence in each `description`. Refresh with `git -C <clone> pull` plus a re-copy when Cole changes them.
+The three planning skills came from `coleam00/skills` v1.3.1 (commit `dfaa9105741fc5ba9b16b6a72551cad4bad70415`), copied verbatim except for a trigger-first first sentence in each `description` and the epic contract check step in `plan-create-stories`. Refresh with `git -C <clone> pull` plus a re-copy when Cole changes them.
