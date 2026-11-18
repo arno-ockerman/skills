@@ -21,6 +21,11 @@ The repository also contains a sanitized export of **128 distinct used Hermes sk
 | [`plan-create-stories`](skills/plan-create-stories/SKILL.md) | A PRD must become engineer-ready GitHub or Jira tickets, or an epic's sibling issues need a contract check before the factory. |
 | [`prd-to-ship-pipeline`](skills/prd-to-ship-pipeline/SKILL.md) | You want to take an idea through PRD → issues → Archon ship runs. |
 | [`skill-inventory-audit`](skills/skill-inventory-audit/SKILL.md) | You are pruning or reviewing the installed Claude/Codex skills. |
+| [`reflect`](skills/reflect/SKILL.md) | End of a session or right after a correction: route each lesson to the one place it belongs. |
+| [`meditate`](skills/meditate/SKILL.md) | Monthly: prune and audit MEMORY.md, auto-memory and the agent docs; check skills against lessons. |
+
+The self-improvement loop: `reflect` after sessions, `meditate` monthly. Both
+adapted from [poteto/brainmaxxing](https://github.com/poteto/brainmaxxing) (MIT).
 
 The planning flow: `plan-create-prd` → `plan-architecture` → `plan-create-stories`,
 with `prd-to-ship-pipeline` tying those steps to Archon.
