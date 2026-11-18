@@ -23,9 +23,14 @@ The repository also contains a sanitized export of **128 distinct used Hermes sk
 | [`skill-inventory-audit`](skills/skill-inventory-audit/SKILL.md) | You are pruning or reviewing the installed Claude/Codex skills. |
 | [`reflect`](skills/reflect/SKILL.md) | End of a session or right after a correction: route each lesson to the one place it belongs. |
 | [`meditate`](skills/meditate/SKILL.md) | Monthly: prune and audit MEMORY.md, auto-memory and the agent docs; check skills against lessons. |
+| [`factory-retro`](skills/factory-retro/SKILL.md) | Weekly: mine the software-factory's runs and review findings into proposals for structural fixes (a PR, never applied). |
 
 The self-improvement loop: `reflect` after sessions, `meditate` monthly. Both
 adapted from [poteto/brainmaxxing](https://github.com/poteto/brainmaxxing) (MIT).
+`factory-retro` is the same loop for the factory: its lenses and synthesizer are
+ported from pstack's `reflect` and `principle-encode-lessons-in-structure`
+([poteto/plugins](https://github.com/poteto/plugins/tree/main/pstack/skills), MIT,
+Lauren Tan). It reads `consumer.py retro` output from software-factory.
 
 The planning flow: `plan-create-prd` → `plan-architecture` → `plan-create-stories`,
 with `prd-to-ship-pipeline` tying those steps to Archon.
