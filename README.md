@@ -44,15 +44,20 @@ They are referenced, not copied, so they stay on their upstream update path.
 |---|---|
 | Claude Code | `/opt/ai-tools/config/claude/home/.claude/skills/<name>/` |
 | Codex | `/opt/ai-tools/config/codex/home/.codex/skills/<name>/` |
+| OpenCode | `/opt/ai-tools/config/xdg/opencode/skills/<name>/` |
+| Pi | `/opt/ai-tools/config/pi/<container>/agent/skills/<name>/` (one per container) |
 
 The clone lives at `/opt/ai-tools/src/skills`.
+
+Antigravity is a T3 Code driver, not a directory target here: it loads skills
+through T3 Code once enabled, so it is not written by `sync.sh`.
 
 ## Syncing
 
 ```bash
 cd /opt/ai-tools/src/skills
 ./sync.sh status            # repo vs. each agent home; exits 1 on drift
-./sync.sh install           # repo -> Claude + Codex homes
+./sync.sh install           # repo -> Claude Code + Codex + OpenCode + Pi homes
 ./sync.sh collect           # edits made in a home -> repo (tracked skills)
 ./sync.sh collect my-skill  # adopt a new skill created in a home
 ```
